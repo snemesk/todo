@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+  
+      <div class="column col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">タスク</div>
+            <table class="table">
+              <thead>
+              <tr>
+                <th>タイトル</th>
+                <th>状態</th>
+                <th>期限</th>
+                <th></th>
+                <th></th>
+                
+              </tr>
+              </thead>
+              <tbody>
+                {% for task in all_items %}
+                  <tr>
+                    <td>{{ task.title }}</td>
+                    <td>
+                      <span 
+                      class="label {% if task.status == 1 %}label-danger{% endif %}{% if task.status == 2 %}label-info{% endif %}"
+                      >
+                      {{ task.get_status_display }}
+                      </span>
+                    </td>
+                    <td>{{ task.due_date }}</td>
+                    <td><a href="{% url 'tasks.edit' task_id=task.id %}">編集</a></td>
+                    <td><a href="{% url 'delete' task.id %}">削除</a></td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <div class="panel-body">
+              <div class="text-right">
+                <a href="{% url 'tasks.create' %}" class="btn btn-default btn-block">
+                  タスクを追加する
+                </a>
+              </div>
+            </div>
+          </div>
+        <!-- タスクはここに表示される -->
+      </div>
+    </div>
+  </div>
+  {% endblock %}
