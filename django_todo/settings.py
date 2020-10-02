@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
     # 本番環境ではデバッグモードはfalseにしておく
 import dj_database_url
+import django_heroku
 #db_from_env = dj_database_url.config()
 #DATABASES = {
 #    'default': dj_database_url.config()
