@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 from socket import gethostname
 hostname = gethostname()
-if "myhostname" in hostname:
+    if "myhostname" in hostname:
     DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.sqlite3',
@@ -85,7 +85,7 @@ if "myhostname" in hostname:
        }
     }
     ALLOWED_HOSTS = []
-else:
+    else:
     # 本番環境ではデバッグモードはfalseにしておく
     DEBUG = False
     import dj_database_url
@@ -146,7 +146,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '..', 'tasktodoapp', 'static'),
-)
