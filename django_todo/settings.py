@@ -75,20 +75,8 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-from socket import gethostname
-hostname = gethostname()
-    if "myhostname" in hostname:
-    DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.sqlite3',
-           'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-       }
-    }
-    ALLOWED_HOSTS = []
-    else:
     # 本番環境ではデバッグモードはfalseにしておく
-    DEBUG = False
-    import dj_database_url
+import dj_database_url
     db_from_env = dj_database_url.config()
     DATABASES = {
         'default': dj_database_url.config()
