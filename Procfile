@@ -1,1 +1,1 @@
-web: gunicorn tasktodoapp.wsgi:application -b 0.0.0.0:$PORT
+web: gunicorn tasktodoapp.wsgi
