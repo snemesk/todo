@@ -81,7 +81,7 @@ db_from_env = dj_database_url.config()
 DATABASES = {
     'default': dj_database_url.config()
 }
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['tasktodoapp.herokuapp.com']
 
 #ALLOWED_HOSTS = ['localhost']
 
