@@ -71,7 +71,7 @@ import django_heroku
 #DATABASES = {
 #    'default': dj_database_url.config()
 #}
-ALLOWED_HOSTS = ['tasktodoapp.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 django_heroku.settings(locals())
 DATABASES = {
     'default': dj_database_url.config(
