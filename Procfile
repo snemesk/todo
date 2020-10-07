@@ -1,1 +1,1 @@
-web: gunicorn tasktodoapp.wsgi
+web: gunicorn django_todo.wsgi
