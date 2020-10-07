@@ -10,4 +10,4 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
 
-CMD gunicorn tasktodoapp.wsgi:apprlication -b 0.0.0.0:$PORT
+#CMD gunicorn tasktodoapp.wsgi:apprlication -b 0.0.0.0:$PORT

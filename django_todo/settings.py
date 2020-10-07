@@ -1,4 +1,3 @@
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -11,10 +10,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'v0k(f6b2o+eo+(=y_)2(6(euhbc_9_cn89e_n812c+gfqrh3%s'
+SECRET_KEY = 'v0k(f6b2o+eo+(=y_)2(6(euhbc_9_cn89e_n812c+gfqrh3%s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 
@@ -64,34 +63,42 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-    # 本番環境ではデバッグモードはfalseにしておく
-import dj_database_url
-import django_heroku
 #db_from_env = dj_database_url.config()
 #DATABASES = {
 #    'default': dj_database_url.config()
 #}
-ALLOWED_HOSTS = ['*']
-django_heroku.settings(locals())
-DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://icxeuvfshahxpd:e4ebcc67a399f742849a86719dc718ba21b21a9ce9333c35ea05d56fca253324@ec2-54-90-68-208.compute-1.amazonaws.com:5432/d6utsrovffi3a1'
-    )
-}
+import dj_database_url
+#import django_heroku
 db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+DATABASES = {
+    'default': dj_database_url.config()
+}
+
+if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
+    import django_heroku #追加
+    django_heroku.settings(locals()) #追加
+ALLOWED_HOSTS = ['*']
+#django_heroku.settings(locals())
+#DATABASES = {
+#   'default': dj_database_url.config(
+#        default='postgres://icxeuvfshahxpd:e4ebcc67a399f742849a86719dc718ba21b21a9ce9333c35ea05d56fca253324@ec2-54-90-68-208.compute-1.amazonaws.com:5432/d6utsrovffi3a1'
+#    )
+#}
+#db_from_env = dj_database_url.config()
+#DATABASES['default'].update(db_from_env)
 #ALLOWED_HOSTS = ['localhost']
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'postgres',
-#        'USER': 'postgres',
-#        'PASSWORD': 'postgres',
-#        'HOST': 'db',
-#        'PORT': 5432,
-#    }
-#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd6utsrovffi3a1',
+        'USER': 'icxeuvfshahxpd',
+        'PASSWORD': 'e4ebcc67a399f742849a86719dc718ba21b21a9ce9333c35ea05d56fca253324',
+        'HOST': 'ec2-54-90-68-208.compute-1.amazonaws.com',
+        'PORT': 5432,
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

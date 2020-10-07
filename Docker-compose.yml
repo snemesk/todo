@@ -9,7 +9,6 @@ services:
         # マウント場所の指定
         volumes:
             - .:/code
-            - .:/var/sock/gunicorn
         ports:
             - "8000:8000"
         # dbサービスが立ち上がってから起動するように指定
