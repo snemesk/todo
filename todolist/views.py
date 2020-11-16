@@ -29,7 +29,7 @@ def edit_task(request, task_id):
             return redirect('home')
     else:
         form = TaskForm(instance=task)
-    return render(request, 'edit.html', {'form': form}, {'task':task})
+    return render(request, 'edit.html', {'form': form})
 
 def delete(request, task_id):
     item = Task.objects.get(id=task_id)
