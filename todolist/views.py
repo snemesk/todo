@@ -18,7 +18,7 @@ def create_task(request):
         form = TaskForm()
     return render(request, 'create_tasks.html', {'form': form})
 
-def edit_task(request, task_id):
+def edit_task2(request, task_id):
 
     task = get_object_or_404(Task, id=task_id)
     if request.method == "POST":
@@ -29,7 +29,7 @@ def edit_task(request, task_id):
             return redirect('home')
     else:
         form = TaskForm(instance=task)
-    return render(request, 'edit_task.html', {'form': form}, {'task':task})
+    return render(request, 'task.html', {'form': form}, {'task':task})
 
 def delete(request, task_id):
     item = Task.objects.get(id=task_id)

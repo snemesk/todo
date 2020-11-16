@@ -30,7 +30,7 @@
                       </span>
                     </td>
                     <td>{{ task.due_date }}</td>
-                    <td><a href="{% url 'tasks.edit' task_id=task.id %}">編集</a></td>
+                    <td><a href="{% url 'tasks.edit2' task_id=task.id %}">編集</a></td>
                     <td><a href="{% url 'delete' task.id %}">削除</a></td>
                   </tr>
                 {% endfor %}
