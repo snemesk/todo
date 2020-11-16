@@ -18,7 +18,7 @@ def create_task(request):
         form = TaskForm()
     return render(request, 'create_tasks.html', {'form': form})
 
-def edit_task2(request, task_id):
+def edit_task(request, task_id):
 
     task = get_object_or_404(Task, id=task_id)
     if request.method == "POST":

@@ -70,10 +70,10 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 
-###if not DEBUG:
-#    SECRET_KEY = os.environ['SECRET_KEY']
-#    import django_heroku 
-#    django_heroku.settings(locals())
+if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
+    import django_heroku 
+    django_heroku.settings(locals())
 
 ALLOWED_HOSTS = ['*']
 DATABASES = {
