@@ -62,13 +62,9 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-#db_from_env = dj_database_url.config()
-#DATABASES = {
-#    'default': dj_database_url.config()
-#}
+
 import dj_database_url
-#import django_heroku
+
 db_from_env = dj_database_url.config()
 DATABASES = {
     'default': dj_database_url.config()
@@ -76,19 +72,10 @@ DATABASES = {
 
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
-    import django_heroku #追加
-    django_heroku.settings(locals()) #追加
-ALLOWED_HOSTS = ['*']
-#django_heroku.settings(locals())
-#DATABASES = {
-#   'default': dj_database_url.config(
-#        default='postgres://icxeuvfshahxpd:e4ebcc67a399f742849a86719dc718ba21b21a9ce9333c35ea05d56fca253324@ec2-54-90-68-208.compute-1.amazonaws.com:5432/d6utsrovffi3a1'
-#    )
-#}
-#db_from_env = dj_database_url.config()
-#DATABASES['default'].update(db_from_env)
-#ALLOWED_HOSTS = ['localhost']
+    import django_heroku 
+    django_heroku.settings(locals())
 
+ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
