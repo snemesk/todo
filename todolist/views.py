@@ -3,13 +3,14 @@ from .models import Task
 from .forms import TaskForm
 from django.contrib import messages
 
+
 def home(request):
     all_items = Task.objects.all
     return render(request, 'index.html', {'all_items': all_items})
 
 def create_task(request):
     if request.method == "POST":
-        form = TaskForm(request.POST)
+        form = TaskForm(request.POST, request.FILES)
         if form.is_valid():
             task = form.save(commit=False)
             task.save()
@@ -22,7 +23,7 @@ def edit_task(request, task_id):
 
     task = get_object_or_404(Task, id=task_id)
     if request.method == "POST":
-        form = TaskForm(request.POST, instance=task)
+        form = TaskForm(request.POST, request.FILES, instance=task)
         if form.is_valid():
             task = form.save(commit=False)
             task.save()
@@ -40,6 +41,6 @@ def delete(request, task_id):
 def document(request, imgfilename):
     file_path = os.path.join(settings.MEDIA_ROOT , 'document/' + imgfilename)
 
-    with open(file_path, "rb") as f:  # rbはread binaryのこと
+    with open(file_path, "rb") as f:  
         imgfile = f.read()
     return HttpResponse(imgfile , content_type="image/jpeg")
