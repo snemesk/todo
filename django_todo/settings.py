@@ -82,13 +82,14 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd6utsrovffi3a1',
-        'USER': 'icxeuvfshahxpd',
-        'PASSWORD': 'e4ebcc67a399f742849a86719dc718ba21b21a9ce9333c35ea05d56fca253324',
-        'HOST': 'ec2-54-90-68-208.compute-1.amazonaws.com',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
         'PORT': 5432,
     }
 }
+
 
 
 # Password validation
