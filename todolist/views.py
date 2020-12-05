@@ -36,3 +36,10 @@ def delete(request, task_id):
     item.delete()
     messages.success(request, ('Item Has Been Deleted from List!'))
     return redirect('home')
+
+def document(request, imgfilename):
+    file_path = os.path.join(settings.MEDIA_ROOT , 'document/' + imgfilename)
+
+    with open(file_path, "rb") as f:  # rbはread binaryのこと
+        imgfile = f.read()
+    return HttpResponse(imgfile , content_type="image/jpeg")

@@ -11,9 +11,10 @@ class TaskForm(forms.ModelForm):
     class Meta:
         STATUS_CHOICES = [(1, '未完了'),(2, '作業中'),(3, '完了')]
         model = Task
-        fields = ('title', 'status','due_date')
+        fields = ('title', 'status', 'due_date', 'image' )
         labels = {
             'title': 'タスク名',
             'status': '状態',
             'due_date': '期限',
+            'image': '画像',
         }

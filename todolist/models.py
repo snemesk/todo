@@ -10,6 +10,7 @@ class Task(models.Model):
     due_date =  models.DateField(default=timezone.now)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(blank=True, null=True)
+    image = models.ImageField(upload_to='document/',blank=True,null=True)
  
     def publish(self):
         self.update_at = timezone.now()

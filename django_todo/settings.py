@@ -53,12 +53,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'django_todo.wsgi.application'
+
 
 
 # Database
@@ -86,6 +89,7 @@ DATABASES = {
         'PORT': 5432,
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -123,5 +127,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
+MEDIA_URL = '/document/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

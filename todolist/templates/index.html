@@ -11,6 +11,7 @@
               <thead>
               <tr>
                 <th>タイトル</th>
+                <th>画像</th>
                 <th>状態</th>
                 <th>期限</th>
                 <th></th>
@@ -29,7 +30,7 @@
                       {{ task.get_status_display }}
                       </span>
                     </td>
-                    <td>{{ task.due_date }}</td>
+                    <td>{{ task.due_date }}</td> 
                     <td><a href="{% url 'tasks.edit' task_id=task.id %}">編集</a></td>
                     <td><a href="{% url 'delete' task.id %}">削除</a></td>
                   </tr>
